@@ -20,6 +20,7 @@
 </head>
 
 <body class="hold-transition login-page">
+
     <?php if ($this->session->flashdata('eror_no_user')){ ?>
     <script>
     swal({
@@ -29,6 +30,29 @@
     });
     </script>
     <?php } ?>
+
+    <?php if ($this->session->flashdata('eror_no_password')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Password yang anda masukan salah !",
+        icon: "error"
+    });
+    </script>
+    <?php } ?>
+
+    <?php if ($this->session->flashdata('eror_no_access')){ ?>
+    <script>
+    swal({
+        title: "Erorr!",
+        text: "Anda Tidak memiliki hak akses !",
+        icon: "error"
+    });
+    </script>
+    <?php } ?>
+
+    
+    
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">

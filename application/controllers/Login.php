@@ -25,14 +25,43 @@ class Login extends CI_Controller
 
         if ($get_user == 1) {
 
-            echo "User Terdaftar";
+            $user = $user->row_array();
+
+            // echo "Ini Password Dari database";
+            // echo var_dump($user['password']);
+            // echo "Ini Password Dari Masukan User";
+            // echo var_dump($password);
+            // die();
+
+            if ($user['password'] == $password) {
+
+                if ($user['id_user_level'] == 1) {
+                    
+                    redirect('Dashboard/view_admin');
+                    
+                } else {
+                    $this->session->set_flashdata('eror_no_access', 'eror_no_access');
+                    redirect('Login/index');
+                }
+
+            } else {
+                $this->session->set_flashdata('eror_no_password', 'eror_no_password');
+                redirect('Login/index');
+            }
 
         } else {
 
             $this->session->set_flashdata('eror_no_user', 'eror_no_user');
             redirect('Login/index');
-            
+
         }
 
     }
+
+    public function log_out()
+	{
+		
+        $this->session->set_flashdata('success_log_out','success_log_out');
+            redirect('Login/index');
+	}
 }

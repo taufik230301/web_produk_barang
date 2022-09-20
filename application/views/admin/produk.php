@@ -97,10 +97,17 @@
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active">Produk</li>
                             </ol>
+
                         </div><!-- /.col -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Tambah Produk
                         </button>
+                        
+                        <a type="button" target="_blank" href="<?=base_url();?>Cetak/laporan_pdf"
+                            class="btn btn-primary ml-2">
+                            Cetak Produk
+                        </a>
+
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -108,6 +115,7 @@
 
             <!-- Main content -->
             <section class="content">
+
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12">
@@ -280,19 +288,18 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form
-                                                                action="<?php echo base_url()?>Produk/hapus_produk"
+                                                            <form action="<?php echo base_url()?>Produk/hapus_produk"
                                                                 method="post" enctype="multipart/form-data">
                                                                 <div class="row">
                                                                     <div class="col-md-12">
                                                                         <input type="hidden" name="id_produk"
                                                                             value="<?php echo $id_produk?>" />
-                                                                        
+
                                                                         <input type="text" class="form-control"
                                                                             id="gambar_produk_old"
                                                                             aria-describedby="emailHelp"
-                                                                            name="gambar_produk_old" value="<?=$gambar_produk?>"
-                                                                            hidden>
+                                                                            name="gambar_produk_old"
+                                                                            value="<?=$gambar_produk?>" hidden>
 
                                                                         <p>Apakah kamu yakin ingin menghapus data
                                                                             ini?</i></b></p>
